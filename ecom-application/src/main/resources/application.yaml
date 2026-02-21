@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  # Security configuration - Use environment variables for production
+  # security:
+  #   user:
+  #     name: ${SECURITY_USER_NAME:root}
+  #     password: ${SECURITY_USER_PASSWORD:12345}
+  application:
+    name: ecom-system
+  datasource:
+    # Modern MySQL 8.0+ Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ecommerce?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    username: root
+    password: "12345@ME"
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    show-sql: false
+    hibernate:
+      # Creates/updates schema as needed
+      ddl-auto: update
+    properties:
+      hibernate:
+        # Modern Hibernate 6+ dialect
+        dialect: org.hibernate.dialect.MySQLDialect
